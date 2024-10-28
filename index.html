@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yumiscpe</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&amp;display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* General Styles */
+        a {
+            text-decoration: none;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center; 
+            margin: 10px 0; 
+        }
+
+        .social-icons a {
+            margin: 0 10px; 
+            color: black; 
+        }
+
+        .hamburger {
+            display: none; /* Hide the hamburger by default */
+            font-size: 24px;
+            cursor: pointer;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 20;
+        }
+
+        .header {
+            background-color: #f8d7da;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .header h1 {
+            display: inline;
+            margin-left: 10px;
+            font-size: 36px;
+        }
+
+        .user-icon {
+            position: absolute;
+            top: 125px;
+            right: 30px;
+            display: flex;
+            align-items: center;
+            font-size: 22px;
+            color: #000000;
+        }
+
+        .user-icon a {
+            text-decoration: none;
+            color: inherit;
+            font-size: 22px;
+        }
+
+        /* Main Content Styles */
+        .main-content {
+            background-image: url('pics/BANNER.jpg'); /* Ensure your banner image is in the 'pics' directory */
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            color: white;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            position: relative;
+        }
+
+        .main-content h2, .main-content h3, .main-content .discover-btn {
+            position: relative;
+            z-index: 2;
+        }
+
+        .main-content h2 {
+            font-size: 55px;
+            margin: 0;
+        }
+
+        .main-content h3 {
+            font-size: 24px;
+            margin: 10px 0;
+        }
+
+        .discover-btn {
+            background-color: #ccc;
+            color: black;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            margin-top: 80px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #f8d7da;
+        }
+
+        .footer p {
+            margin: 10px 0;
+        }
+
+        .footer .social-icons i {
+            margin: 0 10px;
+            font-size: 24px;
+            color: black;
+        }
+
+        @media screen and (max-width: 1024px) { /* iPad Pro and smaller */
+            .nav {
+                flex-direction: column;
+                display: none; /* Hide nav by default */
+                background-color: #f8d7da;
+                position: absolute; /* Use absolute positioning to prevent movement */
+                top: 70px; /* Position from the top */
+                right: 0;
+                width: 100%;
+                text-align: center;
+                z-index: 1000; /* Ensure it is above other elements */
+            }
+
+            .nav.open {
+                display: flex; /* Show nav when open */
+            }
+
+            .nav a {
+                color: white;
+                text-align: left;
+                font-size: 18px; 
+                padding: 10px 0; 
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
+                margin-bottom: 10px; 
+                transition: background-color 0.2s ease;
+            }
+
+            .hamburger {
+                display: block;
+                font-size: 24px;
+                cursor: pointer;
+                position: absolute;
+                top: 20px; /* Adjust this position if necessary */
+                right: 20px; /* Adjust this position if necessary */
+                z-index: 1001; /* Make sure the hamburger icon is above the nav */
+            }
+
+            .main-content h2 {
+                font-size: 40px;
+            }
+
+            .main-content h3 {
+                font-size: 20px;
+            }
+
+            .discover-btn {
+                font-size: 16px;
+                padding: 8px 16px;
+            }
+
+            .header h1 {
+                font-size: 28px;
+            }
+        }
+
+        @media screen and (max-width: 430px) {
+            .nav {
+                flex-direction: column;
+                display: none; /* Hide nav by default */
+                background-color: #f8d7da;
+                top: 70px;
+                right: 0;
+                width: 100%;
+                text-align: center;
+            }
+
+            .nav.open {
+                display: flex; /* Show nav when open */
+            }
+
+            .nav a {
+                padding: 10px;
+                color: white;
+            }
+
+            .main-content h2 {
+                font-size: 32px;
+            }
+
+            .main-content h3 {
+                font-size: 18px;
+            }
+
+            .discover-btn {
+                font-size: 16px;
+                padding: 8px 16px;
+            }
+
+            .header h1 {
+                font-size: 28px;
+            }
+
+            .user-icon {
+                position: absolute;
+                top: 140px; /* Adjust this as needed */
+                right: 15px;
+                display: flex;
+                align-items: center;
+                font-size: 10px; /* Adjust this as needed */
+            }
+
+            .search-bar input {
+                width: 250px;
+                padding: 10px;
+                border-radius: 20px;
+                border: 1px solid #ccc;
+                margin-left: -100px; /* Adjust this as needed */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div id="lol">
+            <img alt="Yumiscpe Logo" src="pics/logo.jpg" width="50" height="50"/> <!-- Ensure logo is in the 'pics' directory -->
+        </div>
+        <h1>YUMISCIPE</h1>
+        <div class="user-icon">
+            <a href="login.html">
+                <span>User</span>
+                <i class="fas fa-user-circle"></i>
+            </a>
+        </div>
+        <div class="nav">
+            <a class="home" href="HOME.html">Home</a>
+            <a class="about" href="about1.html">About</a>
+            <a href="bestrecipe.html">Best Recipe</a>
+            <a href="differentcuisine.html">Different Cuisine</a>
+            <a href="listofdishes.html">List of Dishes</a>
+        </div>
+        <div class="search-bar">
+            <input placeholder="Search Dishes...." type="text"/>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <h2>READY TO EXPLORE NEW DISHES WITH YUMISCIPE!</h2>
+        <h3>BY JNP/KCP</h3>
+        <a class="discover-btn" href="bestrecipe.html">DISCOVER NOW</a>
+    </div>
+
+    <div class="footer">
+        <p>A sight of heavenly taste Recipes</p>
+        <div class="social-icons">
+            <a href="https://www.instagram.com/jn_neri/" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/justinneri.pangilinan" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.tiktok.com" target="_blank"><i class="fab fa-tiktok"></i></a>
+            <a href="https://www.snapchat.com" target="_blank"><i class="fab fa-snapchat"></i></a>
+        </div>
+    </div>
+
+    <div class="hamburger" onclick="toggleMenu()">
+        <i class="fas fa-bars"></i> 
+    </div>
+
+    <script>
+        function toggleMenu() {
+            const nav = document.querySelector('.nav');
+            nav.classList.toggle('open');  // Toggles the 'open' class to show/hide the nav
+        }
+    </script>
+</body>
+</html>

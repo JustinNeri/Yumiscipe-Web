@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filipino Recipes</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .back-button {
+            margin: 20px;
+        }
+        .back-button button {
+            background-color: #f8d7da;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+        .content {
+            text-align: center;
+        }
+        .content h2 {
+            font-size: 24px;
+            margin: 20px 0;
+        }
+        .dishes {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .dish {
+            margin: 20px;
+            text-align: center; 
+        }
+        .dish img {
+            width: 180px; 
+            height: 180px; 
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto;
+            display: block;
+        }
+        .dish p {
+            font-size: 16px;
+            margin-top: 10px;
+            text-align: center; 
+        }
+        .footer1 {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .footer1 i {
+            margin: 0 10px;
+            font-size: 24px;
+            cursor: pointer;
+            color: black;
+        }
+        #recipe-container {
+            margin: 20px auto;
+            width: 60%;
+            border: 1px solid #ccc;
+            padding: 20px;
+            display: none;
+        }
+        .recipe-image img {
+            width: 300px; 
+            height: auto; 
+            display: block;
+            margin: 0 auto;
+        }
+        .recipe-title {
+            text-align: center;
+        }
+        .ingredients, .process {
+            margin: 20px 0;
+        }
+        .nav a.home{
+            color: black;
+        }
+        .nav a.differentcuisine{
+            color: red;
+        }
+        @media screen and (max-width: 430px) {
+            .nav a.home{
+                color: white;
+            }
+        }
+        @media screen and (max-width: 430px) {
+        .nav {
+            flex-direction: column;
+            display: none;
+            position: absolute;
+            background-color: #f8d7da;
+            top: 70px;
+            right: 0;
+            width: 100%;
+            text-align: center;
+        }
+        .nav.open {
+            display: flex;
+        }
+        .nav a {
+            padding: 10px;
+            color: white;
+        }
+        .hamburger {
+            display: block;
+            font-size: 24px;
+            cursor: pointer;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+        .header h1 {
+            font-size: 28px;
+        }
+        .search-bar input {
+        width: 90%; /* Adjusted width to be responsive */
+        max-width: 250px; /* Maximum width to prevent it from becoming too large */
+        padding: 8px;
+        border-radius: 20px;
+        border: 1px solid #ccc;
+        margin-left: 0; /* Removed negative margin */
+        box-sizing: border-box; /* Ensure padding is included in width */
+        margin-left: -100px;
+    }
+
+    .user-icon {
+        position: absolute;
+        top: 160px !important; /* Adjusted value to move the icon higher */
+        right: 15px;
+        display: flex;
+        align-items: center;
+        font-size: 22px;
+    }
+.dish img {
+        width: 120px; /* Adjusted width for smaller screens */
+        height: 120px; /* Adjusted height to match the new width */
+    }
+
+    .dish p {
+        font-size: 14px; /* Adjust the font size of the text under the dish */
+    }
+
+    .recipe-image img {
+        width: 250px; /* Reduce the recipe image size */
+        height: auto; /* Maintain aspect ratio */
+    }
+
+.user-icon i {
+    margin-left: 10px;
+   
+}
+        }
+        @media screen and (max-width: 1024px) {
+            .nav a.home{
+                color: white;
+            }
+        }
+        @media screen and (max-width: 1024px) {
+        .nav {
+            flex-direction: column;
+            display: none;
+            position: absolute;
+            background-color: #f8d7da;
+            top: 70px;
+            right: 0;
+            width: 100%;
+            text-align: left;
+        }
+        .nav.open {
+            display: flex;
+        }
+        .nav a {
+            padding: 10px;
+            color: white;
+        }
+        .hamburger {
+            display: block;
+            font-size: 24px;
+            cursor: pointer;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+        .header h1 {
+            font-size: 28px;
+        }
+        .search-bar input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+        }
+        .search-bar input {
+            width: 350px;
+            padding: 10px;
+            border-radius: 20px;
+            border: 1px solid #ccc;
+           
+}   
+        .user-icon {
+    position: absolute;
+    top: 160px;
+    right:15px;
+    display: flex;
+    align-items: center;
+    font-size: 22px;
+}
+
+.user-icon i {
+    margin-left: 10px;
+   
+}
+        }
+    </style>
+    
+    
+</head>
+<body>
+    <div class="header">
+        <div id="logo">
+            <img alt="Filipino Recipes Logo" height="50" src="pics/logo.jpg" width="50"/>
+        </div>
+        <h1>YUMISCIPE</h1>
+        <div class="user-icon">
+            <a href="login.html">
+                <span>User</span>
+                <i class="fas fa-user-circle"></i>
+            </a>
+        </div>
+        <div class="nav">
+            <a class="home" href="index.html">Home</a>
+            <a class="about" href="about1.html">About</a>
+            <a href="bestrecipe.html">Best Recipe</a>
+            <a class="differentcuisine" href="differentcuisine.html">Different Cuisine</a>
+            <a href="listofdishes.html">List of Dishes</a>
+        </div>
+        <div class="search-bar">
+            <input placeholder="Search Dishes...." type="text"/>
+        </div>
+    </div>
+    <div class="content">
+        <h2>Filipino Cuisine</h2>
+        <div class="dishes">
+            <div class="dish">
+                <a href="#" onclick="loadRecipe('adobo')">
+                    <img alt="Adobo" src="pics/adobo.jpg"/>
+                </a>
+                <p>Adobo</p>
+            </div>
+            <div class="dish">
+                <a href="#" onclick="loadRecipe('bicol-express')">
+                    <img alt="Bicol Express" src="pics/bicolexpress.png"/>
+                </a>
+                <p>Bicol Express</p>
+            </div>
+            <div class="dish">
+                <a href="#" onclick="loadRecipe('caldereta')">
+                    <img alt="Caldereta" src="pics/caldereta.jpg"/>
+                </a>
+                <p>Caldereta</p>
+            </div>
+            <div class="dish">
+                <a href="#" onclick="loadRecipe('bulalo')">
+                    <img alt="Bulalo" src="pics/bulalo.jpg"/>
+                </a>
+                <p>Bulalo</p>
+            </div>
+            <div class="dish">
+                <a href="#" onclick="loadRecipe('sinigang')">
+                    <img alt="Sinigang" src="pics/sinigang.jpg"/>
+                </a>
+                <p>Sinigang</p>
+            </div>
+            <div class="dish">
+                <a href="#" onclick="loadRecipe('kare-kare')">
+                    <img alt="Kare Kare" src="pics/karekare.jpg"/>
+                </a>
+                <p>Kare Kare</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="recipe-container"></div>
+
+    <div class="footer1">
+        <a href="https://www.instagram.com/jn_neri/" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.facebook.com/justinneri.pangilinan" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://www.tiktok.com" target="_blank"><i class="fab fa-tiktok"></i></a>
+        <a href="https://www.snapchat.com" target="_blank"><i class="fab fa-snapchat"></i></a>
+    </div>
+
+    <script>
+        function loadRecipe(dish) {
+            const recipes = {
+                adobo: `
+                    <div class="recipe-image">
+                        <img src="pics/adobo.jpg" alt="Adobo">
+                    </div>
+                    <h2 class="recipe-title">Adobo</h2>
+                    <div class="ingredients">
+                        <h2>Ingredients:</h2>
+                        <ul>
+                            <li>1 kg chicken or pork</li>
+                            <li>1/2 cup soy sauce</li>
+                            <li>1/4 cup vinegar</li>
+                            <li>Garlic, crushed</li>
+                            <li>Bay leaves</li>
+                            <li>Salt and pepper</li>
+                        </ul>
+                    </div>
+                    <div class="process">
+                        <h2>Process:</h2>
+                        <ol>
+                            <li>Marinate the meat in soy sauce, vinegar, and garlic for at least 30 minutes.</li>
+                            <li>Sauté garlic, then add the meat and marinade. Cook until tender.</li>
+                            <li>Add bay leaves, pepper, and adjust seasoning as needed.</li>
+                            <li>Simmer until sauce thickens. Serve with rice.</li>
+                        </ol>
+                    </div>
+                `,
+                'bicol-express': `
+                    <div class="recipe-image">
+                        <img src="pics/bicolexpress.png" alt="Bicol Express">
+                    </div>
+                    <h2 class="recipe-title">Bicol Express</h2>
+                    <div class="ingredients">
+                        <h2>Ingredients:</h2>
+                        <ul>
+                            <li>500g pork belly, sliced</li>
+                            <li>2 cups coconut milk</li>
+                            <li>2 tbsp shrimp paste</li>
+                            <li>Red chilies</li>
+                            <li>Garlic and onions</li>
+                        </ul>
+                    </div>
+                    <div class="process">
+                        <h2>Process:</h2>
+                        <ol>
+                            <li>Sauté garlic, onions, and pork.</li>
+                            <li>Add shrimp paste and chilies, then pour in coconut milk.</li>
+                            <li>Simmer until pork is tender and sauce thickens.</li>
+                        </ol>
+                    </div>
+                `,
+                caldereta: `
+                    <div class="recipe-image">
+                        <img src="pics/caldereta.jpg" alt="Caldereta">
+                    </div>
+                    <h2 class="recipe-title">Caldereta</h2>
+                    <div class="ingredients">
+                        <h2>Ingredients:</h2>
+                        <ul>
+                            <li>1 kg beef, cubed</li>
+                            <li>Tomato sauce</li>
+                            <li>Potatoes, carrots, and bell peppers</li>
+                            <li>Garlic and onions</li>
+                            <li>Cheese</li>
+                        </ul>
+                    </div>
+                    <div class="process">
+                        <h2>Process:</h2>
+                        <ol>
+                            <li>Sauté garlic, onions, and beef until browned.</li>
+                            <li>Add tomato sauce and simmer until beef is tender.</li>
+                            <li>Add vegetables and cheese, cook until done.</li>
+                        </ol>
+                    </div>
+                `,
+                bulalo: `
+                    <div class="recipe-image">
+                        <img src="pics/bulalo.jpg" alt="Bulalo">
+                    </div>
+                    <h2 class="recipe-title">Bulalo</h2>
+                    <div class="ingredients">
+                        <h2>Ingredients:</h2>
+                        <ul>
+                            <li>1 kg beef shanks</li>
+                            <li>Potatoes and corn</li>
+                            <li>Garlic, onions, and peppercorns</li>
+                            <li>Water for boiling</li>
+                            <li>Vegetables like cabbage and green beans</li>
+                        </ul>
+                    </div>
+                    <div class="process">
+                        <h2>Process:</h2>
+                        <ol>
+                            <li>Boil beef shanks with garlic, onions, and peppercorns until tender.</li>
+                            <li>Add corn, potatoes, and vegetables. Simmer until vegetables are cooked.</li>
+                        </ol>
+                    </div>
+                `,
+                sinigang: `
+                    <div class="recipe-image">
+                        <img src="pics/sinigang.jpg" alt="Sinigang">
+                    </div>
+                    <h2 class="recipe-title">Sinigang</h2>
+                    <div class="ingredients">
+                        <h2>Ingredients:</h2>
+                        <ul>
+                            <li>500g pork belly</li>
+                            <li>Tamarind base</li>
+                            <li>Water spinach, eggplant, and radish</li>
+                            <li>Tomatoes and onions</li>
+                        </ul>
+                    </div>
+                    <div class="process">
+                        <h2>Process:</h2>
+                        <ol>
+                            <li>Boil pork belly with tomatoes and onions.</li>
+                            <li>Add tamarind base and vegetables. Simmer until cooked.</li>
+                        </ol>
+                    </div>
+                `,
+                'kare-kare': `
+                    <div class="recipe-image">
+                        <img src="pics/karekare.jpg" alt="Kare Kare">
+                    </div>
+                    <h2 class="recipe-title">Kare Kare</h2>
+                    <div class="ingredients">
+                        <h2>Ingredients:</h2>
+                        <ul>
+                            <li>1 kg oxtail</li>
+                            <li>Peanut butter</li>
+                            <li>Vegetables like eggplant, green beans, and banana blossoms</li>
+                            <li>Garlic, onions, and annatto seeds</li>
+                        </ul>
+                    </div>
+                    <div class="process">
+                        <h2>Process:</h2>
+                        <ol>
+                            <li>Boil oxtail until tender.</li>
+                            <li>Sauté garlic, onions, and annatto seeds. Add peanut butter.</li>
+                            <li>Add vegetables and simmer until cooked.</li>
+                        </ol>
+                    </div>
+                `
+            };
+
+            document.getElementById('recipe-container').innerHTML = recipes[dish];
+            document.getElementById('recipe-container').style.display = 'block';
+        }
+    </script>
+    <div class="hamburger" onclick="toggleMenu()">
+        <i class="fas fa-bars"></i> 
+    </div>
+    <script>
+        function toggleMenu() {
+            const nav = document.querySelector('.nav');
+            nav.classList.toggle('open');  
+        }
+      </script>
+</body>
+</html>

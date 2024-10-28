@@ -1,0 +1,312 @@
+<html>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <head>
+  <title>
+   Yumiscpe
+  </title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&amp;display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css">
+  <style>
+     .nav a.home {
+        color: rgb(0, 0, 0);
+     }
+     .nav a.about {
+        color: red;
+     }
+
+     /* Responsive Styles */
+     @media screen and (max-width: 430px) {
+        .nav {
+            flex-direction: column;
+            display: none;
+            position: absolute;
+            background-color: #f8d7da;
+            top: 70px;
+            right: 0;
+            width: 100%;
+            text-align: center;
+        }
+        .nav.open {
+            display: flex;
+        }
+        .nav a {
+            padding: 10px;
+            color: white;
+        }
+        .hamburger {
+            display: block;
+            font-size: 24px;
+            cursor: pointer;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+        .header h1 {
+            font-size: 28px;
+        }
+        
+
+        /* Founder Section Reordering */
+        .founder {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .founder img {
+            order: -1;
+            max-width: 70%; /* Makes image smaller */
+            height: auto;
+            margin-bottom: 20px;
+        }
+        .founder-info {
+            order: 1;
+            margin-top: 10px;
+        }
+
+        /* Add margin to ensure "ABOUT YUMISCIPE" text does not overlap with the image */
+        .content h2 {
+            margin-bottom: 20px; /* Adds spacing between heading and image */
+        }
+     }
+
+     @media screen and (max-width: 430px) {
+        .header h1 {
+            font-size: 24px;
+        }
+        .founder img {
+            margin-top: 50px;
+            max-width: 50%; /* Smaller for very small screens */
+            align-items: center;
+        }
+        .founder-info {
+            font-size: 16px;
+            margin-left: 20px;
+        }
+        .search-bar input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+        }
+        .search-bar input {
+            width: 250px;
+            padding: 10px;
+            border-radius: 20px;
+            border: 1px solid #ccc;
+            margin-left: -100px;
+}   
+        .user-icon {
+    position: absolute;
+    top: 140px;
+    right:15px;
+    display: flex;
+    align-items: center;
+    font-size: 22px;
+}
+
+.user-icon i {
+    margin-left: 10px;
+   
+}
+     }
+
+     /* Image responsiveness */
+     img {
+        max-width: 100%;
+        height: auto;
+     }
+     @media screen and (max-width: 1024px) {
+        .nav {
+        flex-direction: column;
+        display: none;
+        position: absolute;
+        background-color: #f8d7da;
+        top: 70px;
+        right: 0;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .nav.open {
+        display: flex;
+    }
+
+    .hamburger {
+        display: block;
+        font-size: 24px;
+        cursor: pointer;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+    }
+            .nav.open {
+                display: flex; /* Show nav when open */
+                transform: translateX(0); 
+            }
+
+            .nav a {
+                color: white;
+                text-align: left;
+                font-size: 18px; 
+                padding: 10px 0; 
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
+                margin-bottom: 10px; 
+                transition: background-color 0.2s ease;
+            }
+        .header h1 {
+            font-size: 28px;
+        }
+        .search-bar input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+        }
+
+        /* Founder Section Reordering */
+        .founder {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .founder img {
+            order: -1;
+            max-width: 70%; /* Makes image smaller */
+            height: auto;
+            margin-bottom: 20px;
+        }
+        .founder-info {
+            order: 1;
+            margin-top: 10px;
+        }
+
+        /* Add margin to ensure "ABOUT YUMISCIPE" text does not overlap with the image */
+        .content h2 {
+            margin-bottom: 20px; /* Adds spacing between heading and image */
+        }
+     }
+
+     @media screen and (max-width: 1024px) {
+        .nav a.home{
+            color:white;
+        }
+
+        .header h1 {
+            font-size: 24px;
+        }
+        .founder img {
+            margin-top: 50px;
+            max-width: 35%; /* Smaller for very small screens */
+            align-items: center;
+            margin-left: 10px;
+        }
+        .founder-info {
+            margin-top: -30px;
+            font-size: 16px;
+            margin-left: 20px;
+        }
+        .search-bar input {
+            width: 150%;
+            padding: 10px;
+            margin-top: 10px;
+        }
+        .search-bar input {
+            width: 300px;
+            padding: 10px;
+            border-radius: 20px;
+            border: 1px solid #ccc;
+           
+}   
+        .user-icon {
+    position: absolute;
+    top: 140px;
+    right:15px;
+    display: flex;
+    align-items: center;
+    font-size: 22px;
+}
+
+.user-icon i {
+    margin-left: 10px;
+   
+}
+     }
+
+     /* Image responsiveness */
+     img {
+        max-width: 100%;
+        height: auto;
+     }
+  </style>
+ </head>
+ <body>
+  <div class="header">
+   <div id="lol">
+    <img alt="Yumiscpe Logo" height="50" src="pics/logo.jpg" width="50"/>
+   </div>
+   <h1>
+    YUMISCIPE
+   </h1>
+   <div class="user-icon">
+    <a href="login.html">
+        <span>User</span>
+        <i class="fas fa-user-circle"></i>
+    </a>
+   </div>
+   <div class="hamburger" onclick="toggleMenu()">
+    <i class="fas fa-bars"></i> 
+   </div>
+   <div class="nav">
+    <a class="home" href="index.html">
+     Home
+    </a>
+    <a class="about" href="about1.html">
+     About
+    </a>
+    <a href="bestrecipe.html">
+     Best Recipe
+    </a>
+    <a href="differentcuisine.html">
+     Different Cuisine
+    </a>
+    <a href="listofdishes.html">
+     List of Dishes
+    </a>
+   </div>
+   <div class="search-bar">
+    <input placeholder="Search Dishes...." type="text"/>
+   </div>
+  </div>
+  <div class="content">
+    <h2>
+     ABOUT YUMISCIPE
+    </h2>
+    <div class="founder">
+     <img alt="Founder of Yumiscipe" src="pics/mypic.jpg"/>
+     <div class="founder-info">
+      <p>
+       Founder of Yumiscipe
+      </p>
+      <p>
+        Yumicipe comes from 'Yumi's Recipe,' which is called after the creator Yumi, who was his favorite name. Yumicipe is a dynamic website created to share a wide variety of recipes, from easy go-to dinners to complex feasts with direct to the point manner. Yumicipe features recipes from a variety of cultures and dietary needs, so it has something to offer everyone, whether they are home cooks or lovers of food. By encouraging innovation in the kitchen, the website hopes to make cooking approachable and pleasurable for people of different culinary abilities. The website is created since the founder is passionate about cooking
+      </p>
+     </div>
+    </div>
+   </div>
+   <div class="footer">
+    <div class="social-icons">
+        <a href="https://www.instagram.com/jn_neri/" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.facebook.com/justinneri.pangilinan" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://www.tiktok.com" target="_blank"><i class="fab fa-tiktok"></i></a>
+        <a href="https://www.snapchat.com" target="_blank"><i class="fab fa-snapchat"></i></a>
+    </div>
+   </div>
+   <script>
+    function toggleMenu() {
+        const nav = document.querySelector('.nav');
+        nav.classList.toggle('open');  
+    }
+   </script>
+ </body>
+</html>

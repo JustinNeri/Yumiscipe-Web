@@ -1,0 +1,300 @@
+<html>
+<head>
+  <title>Yumiscpe</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&amp;display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    .body {
+      font-family: "Salsa", cursive;
+    }
+    .nav a.home {
+      color: black;
+    }
+    .login-container {
+      text-align: center;
+      margin-top: 100px;
+    }
+    .login-container h2 {
+      font-size: 48px;
+      color: #9E9393;
+    }
+    .login-container input {
+      display: block;
+      margin: 20px auto;
+      padding: 15px;
+      width: 500px;
+      border-radius: 20px;
+      border: 1px solid #ccc;
+      background-color: #E4D8D8;
+      font-size: 18px;
+      font-family: "Salsa", cursive;
+    }
+    .login-container p {
+      color: #666;
+      font-size: 18px;
+    }
+    .login-container a {
+      color: #ff0000;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .social-icons {
+      text-align: center;
+      margin-top: 50px;
+    }
+    .social-icons i {
+      margin: 0 10px;
+      font-size: 24px;
+      color: black;
+    }
+    .user-icon {
+      position: absolute;
+      top: 125px;
+      right: 30px;
+      display: flex;
+      align-items: center;
+      font-size: 22px;
+      color: #ff0000;
+    }
+    .signup-container {
+      text-align: center;
+      margin-top: 50px;
+    }
+    .signup-container h2 {
+      font-size: 32px;
+      color: #666;
+    }
+    .signup-container input {
+      display: block;
+      width: 400px;
+      margin: 15px auto;
+      padding: 15px;
+      border-radius: 20px;
+      border: 1px solid #ccc;
+      background-color: #f0e6e6;
+      font-size: 18px;
+      color: #666;
+    }
+    .signup-container button {
+      background-color: #f8d7da;
+      border: none;
+      padding: 15px 30px;
+      border-radius: 20px;
+      font-size: 18px;
+      color: #fff;
+      cursor: pointer;
+      font-family: "Salsa", cursive;
+    }
+    .footer1 {
+      text-align: center;
+      margin-top: 50px;
+    }
+    .footer1 i {
+      font-size: 24px;
+      margin: 0 10px;
+      color: #000;
+    }
+    body{
+      background-color: #fff;
+      font-family: "Salsa", cursive;
+    }
+    .user-icon {
+      position: absolute;
+      top: 125px;
+      right: 30px;
+      display: flex;
+      align-items: center;
+      font-size: 22px;
+      color: #ff0000;
+    }
+    .nav a.home{
+      color: black;
+    }
+    @media screen and (max-width: 430px) {
+      .nav a.home{
+        color: white
+      }
+      .nav {
+        flex-direction: column;
+        display: none;
+        position: absolute;
+        background-color: #f8d7da;
+        top: 70px;
+        right: 0;
+        width: 100%;
+        text-align: center;
+      }
+      .nav.open {
+        display: flex;
+      }
+      .nav a {
+        padding: 10px;
+        color: white;
+      }
+      .hamburger {
+        display: block;
+        font-size: 24px;
+        cursor: pointer;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+      }
+      .header h1 {
+        font-size: 24px;
+      }
+      .user-icon {
+        font-size: 18px;
+      }
+      .login-container input, .signup-container input {
+        width: 90%;
+        padding: 10px;
+        font-size: 14px;
+      }
+      .signup-container button {
+        padding: 8px 16px;
+        font-size: 14px;
+      }
+      .social-icons i {
+        font-size: 18px;
+      }
+      .hamburger {
+        font-size: 20px;
+        top: 15px;
+        right: 15px;
+      }
+      .nav {
+        flex-direction: column;
+        display: none;
+        position: absolute;
+        background-color: #f8d7da;
+        top: 70px;
+        right: 0;
+        width: 100%;
+        text-align: center;
+      }
+      .nav.open {
+        display: flex;
+      }
+      .nav a {
+        padding: 10px;
+        color: white;
+      }
+      .search-bar input {
+        width: 100%;
+        padding: 10px;
+        margin-top: 10px;
+        margin-left: -100px;
+      }
+      .search-bar input {
+        width: 250px;
+        padding: 8px;
+        font-size: 14px;
+      }
+      .user-icon {
+        position: absolute;
+        top: 130px;
+        right:15px;
+        display: flex;
+        align-items: center;
+        font-size: 22px;
+      }
+      .user-icon i {
+        margin-left: 10px;
+      }
+      .login-container p {
+        font-size: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div id="lol">
+      <img alt="Yumiscpe Logo" height="50" src="pics/logo.jpg" width="50"/>
+    </div>
+    <h1>YUMISCIPE</h1>
+    <div class="user-icon">
+      <span>User</span>
+      <i class="fas fa-user-circle"></i>
+    </div>
+    <div class="nav">
+      <a class="home" href="index.html">Home</a>
+      <a class="about" href="about1.html">About</a>
+      <a class="bestrecipe" href="bestrecipe.html">Best Recipe</a>
+      <a class="Different" href="differentcuisine.html">Different Cuisine</a>
+      <a href="listofdishes.html">List of Dishes</a>
+    </div>
+    <div class="search-bar">
+      <input placeholder="Search Dishes...." type="text"/>
+    </div>
+  </div>
+
+  <div class="login-container" id="form-container">
+    <h2>LOG IN OR SIGN UP</h2>
+    <input id="login-email" placeholder="Email..." type="text"/>
+    <input id="login-password" placeholder="Password..." type="password"/>
+    <button id="login-button" style="background-color: #f8d7da; border: none; padding: 15px 30px; border-radius: 20px; font-size: 18px; color: #fff; cursor: pointer; font-family: 'Salsa', cursive;">Log In</button>
+    <p>
+      You don't have an account?
+      <a id="create-account">Create one</a>
+    </p>
+  </div>
+
+  <div class="social-icons">
+    <a href="https://www.instagram.com/jn_neri/" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.facebook.com/justinneri.pangilinan" target="_blank"><i class="fab fa-facebook"></i></a>
+    <a href="https://www.tiktok.com" target="_blank"><i class="fab fa-tiktok"></i></a>
+    <a href="https://www.snapchat.com" target="_blank"><i class="fab fa-snapchat"></i></a>
+  </div>
+
+  <div class="hamburger" onclick="toggleMenu()">
+    <i class="fas fa-bars"></i> 
+  </div>
+
+  <script>
+    document.getElementById("create-account").addEventListener("click", function() {
+      document.getElementById("form-container").innerHTML = `
+        <div class="signup-container">
+          <h2>SIGN UP</h2>
+          <input id="email" placeholder="Email..." type="email"/>
+          <input id="password" placeholder="Password..." type="password"/>
+          <input id="repassword" placeholder="Re-enter Password..." type="password"/>
+          <input id="firstname" placeholder="First Name..." type="text"/>
+          <input id="lastname" placeholder="Last Name..." type="text"/>
+          <button id="create-button">Create</button>
+        </div>
+      `;
+
+      document.getElementById("create-button").addEventListener("click", function() {
+        // Clear the inputs
+        document.getElementById("email").value = "";
+        document.getElementById("password").value = "";
+        document.getElementById("repassword").value = "";
+        document.getElementById("firstname").value = "";
+        document.getElementById("lastname").value = "";
+        // Alert user
+        alert("Account successfully created!");
+      });
+    });
+
+    document.getElementById("login-button").addEventListener("click", function() {
+      // Get login values
+      const email = document.getElementById("login-email").value;
+      const password = document.getElementById("login-password").value;
+      // Simple check for empty fields
+      if (email && password) {
+        alert("Logged in successfully!");
+      } else {
+        alert("Please enter both email and password.");
+      }
+    });
+
+    function toggleMenu() {
+      const nav = document.querySelector('.nav');
+      nav.classList.toggle('open');  
+    }
+  </script>
+</body>
+</html>

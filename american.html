@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yumiscpe</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+       
+        .nav a.home {
+            color: black;
+        }
+        .nav a.differentcuisine {
+            color: red;
+        }
+        
+        .content {
+            text-align: center;
+        }
+        .content h2 {
+            font-size: 24px;
+            margin: 20px 0;
+        }
+        .dishes {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .dish {
+            margin: 20px;
+            text-align: center; 
+        }
+        .dish img {
+            width: 200px; 
+            height: 200px; 
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto;
+            display: block;
+        }
+        .dish p {
+            font-size: 16px;
+            margin-top: 10px;
+            text-align: center; 
+        }
+        .footer1 {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .footer1 i {
+            margin: 0 10px;
+            font-size: 24px;
+            cursor: pointer;
+            color: black;
+        }
+        #recipe-container {
+            margin: 20px auto;
+            width: 60%;
+            border: 1px solid #ccc;
+            padding: 20px;
+            display: none;
+        }
+        .recipe-image img {
+            width: 400px; 
+            height: auto; 
+            display: block;
+            margin: 0 auto;
+        }
+        .recipe-title {
+            text-align: center;
+        }
+        .ingredients, .process {
+            margin: 20px 0;
+        }
+        
+        @media screen and (max-width: 430px) {
+    .nav a.home {
+        color: white;
+    }
+
+    .nav {
+        flex-direction: column;
+        display: none;
+        position: absolute;
+        background-color: #f8d7da;
+        top: 70px;
+        right: 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav.open {
+        display: flex;
+    }
+
+    .nav a {
+        padding: 10px;
+        color: white;
+    }
+
+    .hamburger {
+        display: block;
+        font-size: 24px;
+        cursor: pointer;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+    }
+
+    .header h1 {
+        font-size: 28px;
+    }
+
+    .search-bar input {
+        width: 90%; /* Adjusted width to be responsive */
+        max-width: 250px; /* Maximum width to prevent it from becoming too large */
+        padding: 8px;
+        border-radius: 20px;
+        border: 1px solid #ccc;
+        margin-left: 0; /* Removed negative margin */
+        box-sizing: border-box; /* Ensure padding is included in width */
+        margin-left: -100px;
+    }
+
+    .user-icon {
+        position: absolute;
+        top: 130px !important; /* Adjusted value to move the icon higher */
+        right: 15px;
+        display: flex;
+        align-items: center;
+        font-size: 22px;
+    }
+
+    .user-icon i {
+        margin-left: 10px;
+    }
+
+    .dish img {
+        width: 120px; /* Adjusted width for smaller screens */
+        height: 120px; /* Adjusted height to match the new width */
+    }
+
+    .dish p {
+        font-size: 14px; /* Adjust the font size of the text under the dish */
+    }
+
+    .recipe-image img {
+        width: 250px; /* Reduce the recipe image size */
+        height: auto; /* Maintain aspect ratio */
+    }
+}
+
+
+@media screen and (max-width: 1024px) {
+    .nav a.home {
+        color: white;
+    }
+    
+    .nav {
+        flex-direction: column;
+        display: none;
+        position: absolute;
+        background-color: #f8d7da;
+        top: 70px;
+        right: 0;
+        width: 100%;
+        text-align: left;
+    }
+
+    .nav.open {
+        display: flex;
+    }
+
+    .nav a {
+        padding: 10px;
+        color: white;
+    }
+
+    .hamburger {
+        display: block;
+        font-size: 24px;
+        cursor: pointer;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+    }
+
+    .header h1 {
+        font-size: 28px;
+    }
+
+    .search-bar input {
+        width: 350px;
+        padding: 10px;
+        border-radius: 20px;
+        border: 1px solid #ccc;
+    }
+
+    .user-icon {
+        position: absolute;
+        top: 140px;
+        right: 15px;
+        display: flex;
+        align-items: center;
+        font-size: 22px;
+    }
+
+    .user-icon i {
+        margin-left: 10px;
+    }
+}
+
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <div id="lol">
+            <img alt="Yumiscpe Logo" height="50" src="pics/logo.jpg" width="50"/>
+        </div>
+        <h1>YUMISCIPE</h1>
+        <div class="user-icon">
+            <a href="login.html">
+                <span>User</span>
+                <i class="fas fa-user-circle"></i>
+            </a>
+        </div>
+        <div class="nav">
+            <a class="home" href="index.html">Home</a>
+            <a class="about" href="about1.html">About</a>
+            <a href="bestrecipe.html">Best Recipe</a>
+            <a class="differentcuisine"href="differentcuisine.html">Different Cuisine</a>
+            <a href="listofdishes.html">List of Dishes</a>
+        </div>
+        <div class="search-bar">
+            <input placeholder="Search Dishes...." type="text"/>
+        </div>
+    </div>
+    <div class="content">
+        <h2>AMERICAN CUISINE</h2>
+        <div class="dishes">
+            <div class="dish">
+                <a href="#" onclick="loadRecipe('hamburger')">
+                    <img alt="Hamburger" src="pics/hamburger.jpg"/>
+                </a>
+                <p>Hamburger</p>
+            </div>
+            <div class="dish">
+                <a href="#" onclick="loadRecipe('mac-n-cheese')">
+                    <img alt="Mac n Cheese" src="pics/macncheese.jpg"/>
+                </a>
+                <p>Mac n Cheese</p>
+            </div>
+            <div class="dish">
+                <a href="#" onclick="loadRecipe('bbq-ribs')">
+                    <img alt="BBQ ribs" src="pics/bbq.jpg"/>
+                </a>
+                <p>BBQ Ribs</p>
+            </div>
+            <div class="dish">
+                <a href="#" onclick="loadRecipe('garlic-fried-chicken')">
+                    <img alt="Garlic fried chicken" src="pics/garlicfriedchicken.jpg"/>
+                </a>
+                <p>Garlic Fried Chicken</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="recipe-container"></div>
+
+    <div class="footer1">
+        <a href="https://www.instagram.com/jn_neri/" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.facebook.com/justinneri.pangilinan" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://www.tiktok.com" target="_blank"><i class="fab fa-tiktok"></i></a>
+        <a href="https://www.snapchat.com" target="_blank"><i class="fab fa-snapchat"></i></a>
+    </div>
+
+    <script>
+        function loadRecipe(dish) {
+            const recipes = {
+                hamburger: `
+                    <div class="recipe-image">
+                        <img src="pics/hamburger.jpg" alt="Hamburger">
+                    </div>
+                    <h2 class="recipe-title">Hamburger</h2>
+                    <div class="ingredients">
+                        <h2>Ingredients:</h2>
+                        <ul>
+                            <li>1 lb (450g) ground beef (80% lean, 20% fat)</li>
+                            <li>Salt and pepper, to taste</li>
+                            <li>4 hamburger buns</li>
+                            <li>4 slices of cheese (optional)</li>
+                            <li>Lettuce leaves</li>
+                            <li>Tomato slices</li>
+                            <li>Onion slices</li>
+                            <li>Pickles</li>
+                            <li>Ketchup, mustard, and mayonnaise (optional)</li>
+                        </ul>
+                    </div>
+                    <div class="process">
+                        <h2>Process:</h2>
+                        <ol>
+                            <li>Shape ground beef into 4 equal patties, season with salt and pepper.</li>
+                            <li>Grill or cook in a skillet for 3-4 minutes per side.</li>
+                            <li>Lightly toast the hamburger buns.</li>
+                            <li>Add condiments, lettuce, tomato, onion, and pickles to the bun. Place the cooked patty on top.</li>
+                            <li>Enjoy with your preferred side dishes.</li>
+                        </ol>
+                    </div>
+                `,
+                'mac-n-cheese': `
+                    <div class="recipe-image">
+                        <img src="pics/macncheese.jpg" alt="Mac n Cheese">
+                    </div>
+                    <h2 class="recipe-title">Mac n Cheese</h2>
+                    <div class="ingredients">
+                        <h2>Ingredients:</h2>
+                        <ul>
+                            <li>8 oz (225g) elbow macaroni</li>
+                            <li>2 cups shredded cheddar cheese</li>
+                            <li>1/2 cup grated Parmesan cheese</li>
+                            <li>3 cups milk</li>
+                            <li>1/4 cup butter</li>
+                            <li>2 tablespoons all-purpose flour</li>
+                            <li>Salt and pepper, to taste</li>
+                            <li>1/2 teaspoon mustard powder (optional)</li>
+                            <li>Breadcrumbs for topping (optional)</li>
+                        </ul>
+                    </div>
+                    <div class="process">
+                        <h2>Process:</h2>
+                        <ol>
+                            <li>Boil and drain elbow macaroni.</li>
+                            <li>Melt butter, whisk in flour, then gradually add milk. Stir in cheese until melted.</li>
+                            <li>Mix macaroni with cheese sauce. Season with salt, pepper, and mustard powder.</li>
+                            <li>Optional: Transfer to a baking dish, top with breadcrumbs, and bake at 350°F (175°C) for 20 minutes.</li>
+                            <li>Enjoy hot!</li>
+                        </ol>
+                    </div>
+                `,
+                'bbq-ribs': `
+                    <div class="recipe-image">
+                        <img src="pics/bbq.jpg" alt="BBQ Ribs">
+                    </div>
+                    <h2 class="recipe-title">BBQ Ribs</h2>
+                    <div class="ingredients">
+                        <h2>Ingredients:</h2>
+                        <ul>
+                            <li>2 racks of pork ribs</li>
+                            <li>1 cup barbecue sauce</li>
+                            <li>1/4 cup brown sugar</li>
+                            <li>1 tablespoon paprika</li>
+                            <li>Salt and pepper, to taste</li>
+                        </ul>
+                    </div>
+                    <div class="process">
+                        <h2>Process:</h2>
+                        <ol>
+                            <li>Season ribs with paprika, salt, and pepper.</li>
+                            <li>Preheat oven to 275°F (135°C) and bake ribs covered for 2-3 hours.</li>
+                            <li>Brush with barbecue sauce and grill for 10 minutes per side.</li>
+                            <li>Serve with additional sauce if desired.</li>
+                        </ol>
+                    </div>
+                `,
+                'garlic-fried-chicken': `
+                    <div class="recipe-image">
+                        <img src="pics/garlicfriedchicken.jpg" alt="Garlic Fried Chicken">
+                    </div>
+                    <h2 class="recipe-title">Garlic Fried Chicken</h2>
+                    <div class="ingredients">
+                        <h2>Ingredients:</h2>
+                        <ul>
+                            <li>4 chicken thighs, bone-in, skin-on</li>
+                            <li>5 cloves garlic, minced</li>
+                            <li>1/2 cup all-purpose flour</li>
+                            <li>1/2 teaspoon paprika</li>
+                            <li>Salt and pepper, to taste</li>
+                            <li>Oil for frying</li>
+                        </ul>
+                    </div>
+                    <div class="process">
+                        <h2>Process:</h2>
+                        <ol>
+                            <li>Season chicken thighs with salt, pepper, and paprika.</li>
+                            <li>Dredge in flour and shake off excess.</li>
+                            <li>Heat oil in a skillet and fry chicken until golden and cooked through.</li>
+                            <li>In a separate pan, sauté minced garlic until fragrant. Add to fried chicken.</li>
+                            <li>Enjoy with your preferred sides!</li>
+                        </ol>
+                    </div>
+                `
+            };
+
+            const container = document.getElementById('recipe-container');
+            container.innerHTML = recipes[dish];
+            container.style.display = 'block';
+        }
+    </script>
+    <div class="hamburger" onclick="toggleMenu()">
+        <i class="fas fa-bars"></i> 
+    </div>
+    <script>
+        function toggleMenu() {
+            const nav = document.querySelector('.nav');
+            nav.classList.toggle('open'); 
+        }
+      </script>
+</body>
+</html>

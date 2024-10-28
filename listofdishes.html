@@ -1,0 +1,594 @@
+<html>
+ <head>
+  <title>
+   Yumiscpe
+  </title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&amp;display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+   /* Global styling */
+   .nav a.home{
+    color: black;
+   }
+   .nav a.listofdishes{
+    color: red;
+   }
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Salsa", cursive;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header styling */
+.header {
+    background-color: #f8d7da; 
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+}
+
+.header img {
+    width: 80px;
+    height: 80px;
+}
+
+.header h1 {
+    font-size: 28px;
+}
+
+.nav {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+}
+
+.nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color:black;
+}
+
+/* Search bar styling */
+.search-bar {
+    margin-top: 10px; /* Adjust margin for spacing */
+    display: flex; /* Added flexbox for centering */
+    justify-content: center; /* Center the search bar */
+}
+
+.search-bar input {
+    width: 100%;
+    max-width: 300px;
+    padding: 10px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+}
+
+/* Content and table styling */
+.content {
+    padding: 20px;
+    max-width: 1000px; /* Limits the content width for better responsiveness */
+    margin: 0 auto;
+}
+
+.content h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.table-container {
+    width: 100%;
+    overflow-x: auto; /* Ensure the table doesn't overflow horizontally */
+    margin: 0 auto;
+}
+
+table {
+    width: 100%; /* Ensure the table takes full width of the container */
+    border-collapse: collapse;
+    background-color: white;
+    font-size: 14px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+.food-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Star rating icons */
+.rating i {
+    color: gold;
+    margin-right: 2px;
+}
+
+/* Footer section */
+.footer1 {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.footer1 i {
+    margin: 0 10px;
+    font-size: 24px;
+    cursor: pointer;
+    color: black;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 430px) {
+    /* Adjust search bar width and position */
+    .search-bar {
+        width: 250px;
+        margin-top: 5px; /* Move it higher */
+        margin-left: 20px;
+    }
+
+    .search-bar input {
+        width: 250px !important; /* Use !important as a last resort */
+        padding: 10px;
+        border-radius: 20px;
+        border: 1px solid #ccc;
+        margin-top: 10px;
+        display: block;
+    }
+
+    .nav {
+        flex-direction: column;
+        color: white;
+    }
+
+    .nav a {
+        margin: 5px 0;
+        color: white;
+    }
+
+    /* Prevent horizontal scrolling */
+    body {
+        overflow-x: hidden; /* Disable horizontal scrolling */
+    }  
+
+    /* Adjust table styling for smaller screens */
+    table {
+        width: 100vw; /* Set the table to fit the full viewport width */
+        font-size: 8px; /* Reduce font size */
+    }
+
+    .table-container {
+        overflow-x: hidden; /* Ensure no horizontal scroll */
+        padding: 0;
+    }
+
+    .food-image {
+        width: 35px; /* Reduce food image size */
+        height: 35px;
+    }
+
+    th, td {
+        padding: 5px; /* Reduce padding */
+        word-wrap: break-word; /* Ensure text wraps within cells */
+    }
+
+    /* Make the video smaller */
+    .video-block iframe {
+        width: 70%; /* Adjusted width for smaller size */
+        max-width: 50px; /* Further reduced iframe width */
+        height: 80px; /* Adjusted iframe height */
+    }
+
+    .user-icon {
+        position: absolute;
+        top: 130px;
+        right: 15px;
+        display: flex;
+        align-items: center;
+        font-size: 22px;
+    }
+
+    .user-icon i {
+        margin-left: 10px;
+    }
+
+    .footer1 i {
+        font-size: 22px; /* Smaller footer icons */
+    }
+}
+
+
+/* Additional responsive styles for 1024px */
+@media screen and (max-width: 1024px) {
+    /* Adjust search bar width and position */
+    .search-bar {
+        margin-top: 5px; /* Move it higher */
+    }
+
+    .search-bar input {
+        width: 80%; /* Adjust the width for slightly larger screens */
+        padding: 8px; /* Adjust padding */
+    }
+
+    /* Adjust header title and image size */
+    .header h1 {
+        font-size: 28px; /* Reduce the font size of the header */
+    }
+
+    .nav {
+        flex-direction: column;
+        display: none; /* Hide the navigation menu by default */
+        position: absolute;
+        background-color: #f8d7da;
+        top: 70px;
+        right: 0;
+        width: 100%;
+        text-align: left;
+    }
+
+    .nav.open {
+        display: flex; /* Show navigation when open */
+    }
+
+    .nav a {
+        padding: 10px;
+        color: rgb(255, 255, 255); /* Set link color */
+    }
+    .nav a.home{
+        color: rgb(255, 255, 255);
+    }
+
+    .hamburger {
+        display: block; /* Show hamburger icon */
+        font-size: 24px;
+        cursor: pointer;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+    }
+
+    /* Adjust table styling for smaller screens */
+    table {
+        width: 100%; /* Set the table to fit the full width of the container */
+        font-size: 12px; /* Slightly larger font size */
+    }
+
+    .table-container {
+        overflow-x: auto; /* Allow horizontal scroll if necessary */
+    }
+
+    /* Adjust other styles */
+    .food-image {
+        width: 70px; /* Adjust food image size */
+        height: 70px;
+    }
+
+    th, td {
+        padding: 6px; /* Reduce padding */
+    }
+
+    /* Video block adjustments */
+    .video-block iframe {
+        width: 100%;
+        max-width: 400px; /* Adjust iframe width */
+        height: 225px; /* Adjust iframe height */
+    }
+
+    .footer1 i {
+        font-size: 20px; /* Adjust footer icon size */
+    }
+}
+
+
+
+</style>
+
+ </head>
+ <body>
+  <div class="header">
+   <div id="lol">
+    <img alt="Yumiscpe Logo" height="50" src="pics/logo.jpg" width="50"/>
+   </div>
+   <h1>
+    YUMISCIPE
+   </h1>
+   <div class="user-icon">
+    <a href="login.html">
+        <span>User</span>
+        <i class="fas fa-user-circle"></i>
+    </a>
+</div>
+   <div class="nav">
+    <a class="home" href="index.html">
+     Home
+    </a>
+    <a class="about" href="about1.html">
+     About
+    </a>
+    <a href="bestrecipe.html">
+     Best Recipe
+    </a>
+    <a href="differentcuisine.html">
+     Different Cuisine
+    </a>
+    <a class="listofdishes" href="listofdishes.html">
+     List of Dishes
+    </a>
+   </div>
+   <div class="search-bar">
+    <input placeholder="Search Dishes...." type="text"/>
+   </div>
+  </div>
+
+  <div class="content">
+    <h2>
+     List of Dishes
+    </h2>
+    <div class="table-container">
+     <table>
+      <thead>
+       <tr>
+        <th>
+         Foods
+        </th>
+        <th>
+         Description
+        </th>
+        <th>
+         Rating
+        </th>
+       </tr>
+      </thead>
+      <tbody>
+       <tr>
+        <td>
+         <img alt="Adobo" class="food-image" height="100" src="pics/adobo.jpg" width="100"/>
+         <p class="food-label">Adobo</p>
+        </td>
+        <td>
+         Adobo is a beloved Filipino dish known for its savory, tangy, and slightly sweet flavors. It typically consists of meat (such as chicken, pork, or beef) marinated in a mixture of soy sauce, vinegar, garlic, and spices, then simmered until tender. The result is a rich and flavorful dish that pairs perfectly with steamed rice.
+        </td>
+        <td class="rating">
+         <i class="fas fa-star">
+         </i>
+         <i class="fas fa-star">
+         </i>
+         <i class="fas fa-star">
+         </i>
+         <i class="fas fa-star">
+         </i>
+         <i class="fas fa-star">
+         </i>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <img alt="Bulalo" class="food-image" height="100" src="pics/bulalo.jpg" width="100"/>
+         <p class="food-label">Bulalo</p>
+        </td>
+        <td>
+         Bulalo is a traditional Filipino beef soup known for its rich and hearty flavors. It features tender beef shanks with bone marrow, simmered with vegetables like corn, cabbage, and potatoes in a flavorful broth. The marrow adds a luxurious texture to the soup, making it a comforting and satisfying dish, especially on a cold day.
+        </td>
+        <td class="rating">
+         <i class="fas fa-star">
+         </i>
+         <i class="fas fa-star">
+         </i>
+         <i class="fas fa-star">
+         </i>
+         <i class="fas fa-star">
+         </i>
+         <i class="fas fa-star">
+         </i>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <img alt="Bicol Express" class="food-image" height="100" src="pics/bicolexpress.png" width="100"/>
+         <p class="food-label">Bicol Express</p>
+        </td>
+        <td>
+         Bicol Express is a spicy Filipino dish from the Bicol region. It consists of pork cooked in coconut milk and chili peppers, creating a creamy and fiery flavor profile. The dish is often seasoned with shrimp paste and garlic, adding depth to its taste. Bicol Express is a favorite among those who enjoy spicy and flavorful cuisine.
+        </td>
+        <td class="rating">
+         <i class="fas fa-star">
+         </i>
+         <i class="fas fa-star">
+         </i>
+         <i class="fas fa-star">
+         </i>
+         <i class="fas fa-star">
+         </i>
+         <i class="fas fa-star">
+         </i>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <img alt="Sinigang" class="food-image" height="100" src="pics/sinigang.jpg" width="100"/>
+         <p class="food-label">Sinigang</p>
+        </td>
+        <td>
+         Sinigang is a traditional Filipino sour soup known for its tangy and savory flavors. It is typically made with pork, shrimp, or fish, along with a variety of vegetables such as tomatoes, radishes, and kangkong (water spinach). The soup is flavored with tamarind, giving it a distinct sour taste that is both refreshing and comforting.
+        </td>
+        <td class="rating">
+         <i class="fas fa-star">
+         </i>
+         <i class="fas fa-star">
+         </i>
+         <i class="fas fa-star">
+         </i>
+         <i class="fas fa-star">
+         </i>
+         <i class="fas fa-star">
+         </i>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <img alt="Caldereta" class="food-image" height="100" src="pics/caldereta2.jpg" width="100"/>
+         <p class="food-label">Caldereta</p>
+        </td>
+        <td>
+         Caldereta is a rich and hearty Filipino stew made with meat (usually beef or goat), potatoes, carrots, and bell peppers. The dish is cooked in a tomato-based sauce with liver spread, giving it a unique and savory flavor. Caldereta is often enjoyed during special occasions and family gatherings, served with steamed rice.
+        </td>
+        <td class="rating">
+         <i class="fas fa-star">
+         </i>
+         <i class="fas fa-star">
+         </i>
+         <i class="fas fa-star">
+         </i>
+         <i class="fas fa-star">
+         </i>
+         <i class="fas fa-star">
+         </i>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <img alt="Kare-Kare" class="food-image" height="100" src="pics/karekare.jpg" width="100"/>
+         <p class="food-label">Kare-Kare</p>
+        </td>
+        <td>
+         Kare-Kare is a traditional Filipino stew known for its rich and creamy peanut sauce. It is typically made with oxtail, tripe, and vegetables such as eggplant, string beans, and banana blossoms. The dish is often served with bagoong (fermented shrimp paste) on the side, adding a salty and savory contrast to the sweet and nutty flavors of the stew.
+        </td>
+        <td class="rating">
+         <i class="fas fa-star">
+         </i>
+         <i class="fas fa-star">
+         </i>
+         <i class="fas fa-star">
+         </i>
+         <i class="fas fa-star">
+         </i>
+         <i class="fas fa-star">
+         </i>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <img alt="Hamburger" class="food-image" height="100" src="pics/hamburger.jpg" width="100"/>
+         <p class="food-label">Hamburger</p>
+        </td>
+        <td>
+         A hamburger is a popular American sandwich featuring a cooked patty of ground meat (usually beef) placed inside a sliced bun. It is often garnished with lettuce, tomato, onions, pickles, cheese, and condiments such as ketchup and mustard. Hamburgers are a staple of fast food and casual dining, enjoyed by people of all ages.
+        </td>
+        <td class="rating">
+         <i class="fas fa-star">
+         </i>
+         <i class="fas fa-star">
+         </i>
+         <i class="fas fa-star">
+         </i>
+         <i class="fas fa-star">
+         </i>
+    
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <img alt="Mac n Cheese" class="food-image" height="100" src="pics/macncheese.jpg" width="100"/>
+         <p class="food-label">Mac n Cheese</p>
+        </td>
+        <td>
+         Mac and cheese is a classic comfort food dish with roots in American cuisine. It consists of cooked macaroni pasta mixed with a creamy cheese sauce, often made with cheddar cheese. The dish is baked until bubbly and golden, creating a rich and satisfying meal that is loved by both children and adults.
+        </td>
+        <td class="rating">
+         <i class="fas fa-star">
+         </i>
+         <i class="fas fa-star">
+         </i>
+         <i class="fas fa-star">
+         </i>
+    
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <img alt="Garlic Fried Chicken" class="food-image" height="100" src="pics/garlicfriedchicken.jpg" width="100"/>
+         <p class="food-label">Garlic Fried Chicken</p>
+        </td>
+        <td>
+         Garlic fried chicken is a flavorful and crispy dish where chicken pieces are marinated in a mixture of garlic, soy sauce, and spices, then deep-fried until golden and crunchy. The garlic adds a robust and aromatic flavor to the chicken, making it a popular choice for those who enjoy bold and savory dishes.
+        </td>
+        <td class="rating">
+         <i class="fas fa-star">
+         </i>
+         <i class="fas fa-star">
+         </i>
+         <i class="fas fa-star">
+         </i>
+         <i class="fas fa-star">
+         </i>
+         <i class="fas fa-star">
+         </i>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <img alt="BBQ Ribs" class="food-image" height="100" src="pics/bbq.jpg" width="100"/>
+         <p class="food-label">BBQ Ribs</p>
+        </td>
+        <td>
+         BBQ ribs are a delicious and popular dish featuring pork or beef ribs that are seasoned with a dry rub or marinated in a flavorful sauce, then slow-cooked or grilled to perfection. The result is tender, juicy meat with a smoky and savory taste, often enjoyed with a side of coleslaw or baked beans.
+        </td>
+        <td class="rating">
+         <i class="fas fa-star">
+         </i>
+         <i class="fas fa-star">
+         </i>
+         <i class="fas fa-star">
+         </i>
+         <i class="fas fa-star">
+         </i>
+         <i class="fas fa-star">
+         </i>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="video-container">
+     <h2>Watch Our Featured Videos Came from Best chefs!</h2>
+     <div class="video-block">
+      <h3>Adobo</h3>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/wwapBsT0oc8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+     </div>
+     <div class="video-block">
+      <h3>Bulalo</h3>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/ydZYj09_Qds" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+     </div>
+
+    </div>
+   </div>
+   <div class="footer1">
+    <a href="https://www.instagram.com/jn_neri/" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.facebook.com/justinneri.pangilinan" target="_blank"><i class="fab fa-facebook"></i></a>
+    <a href="https://www.tiktok.com" target="_blank"><i class="fab fa-tiktok"></i></a>
+    <a href="https://www.snapchat.com" target="_blank"><i class="fab fa-snapchat"></i></a>
+</div>
+<div class="hamburger" onclick="toggleMenu()">
+    <i class="fas fa-bars"></i> 
+</div>
+<script>
+    function toggleMenu() {
+        const nav = document.querySelector('.nav');
+        nav.classList.toggle('open'); 
+    }
+  </script>
+  </body>
+ </html>
